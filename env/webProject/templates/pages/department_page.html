@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+{%load static %}
+
+<head>
+    <title>Department page</title>
+    <link rel="stylesheet" href="{%static 'css/department_style.css' %}">
+    <script type="text/javascript" src="{%static 'JS/department_JS.js' %}"></script>
+</head>
+
+<body>
+
+    <br>
+
+    <nav>
+        <a href="{% url 'home'%}">Home</a>
+        <a href="{% url 'add'%}">Add Student</a>
+        <a href="{% url 'edit'%}">Edit Student Data</a>
+        <a href="{% url 'search'%}">Search</a>
+        <a href="{% url 'view'%}">View Students</a>
+        <a class="activee" href="{% url 'department'%}">Department</a>
+        <a href="{% url 'login'%}">Logout</a>
+
+
+    </nav>
+
+    <br>
+
+
+
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="studentID"><strong> Student ID:</strong></label><br /><br />
+            <input type="text" required placeholder="ex: 20200011" name="studentID" id="Id"><br /><br />
+            <!-- <label for="level"><strong> Student Level:</strong></label><br /><br />
+            <input type="radio" id="level1" name="level" value="Level (1)">
+            <label for="level1">1</label> <br />
+            <input type="radio" id="level2" name="level" value="Level (2)">
+            <label for="level2">2</label><br />
+            <input type="radio" id="level3" name="level" value="Level (3)">
+            <label for="level3">3</label><br />
+            <input type="radio" id="level4" name="level" value="Level (4)">
+            <label for="level4">4</label><br /> -->
+
+
+            <br />
+
+            <p><strong> Department:</strong><br /><br />
+                <select name="department">
+                    <!--<option disabled selected hidden >Choose department</option>-->
+                    <option name="General"> General</option>
+                    <option name="CS">CS</option>
+                    <option name="DS"> DS</option>
+                    <option name="AI"> AI</option>
+                    <option name="IS"> IS</option>
+                    <option name="IT"> IT</option>
+
+                </select>
+                <br /> <br />
+                <!-- <input type="submit" onclick="onc()" value="submit"> -->
+                <button onclick="onc()">Save</button>
+
+
+
+
+        </form>
+    </div>
+
+</body>
+
+</html>
