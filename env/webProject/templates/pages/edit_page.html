@@ -1,0 +1,67 @@
+<html>
+{%load static %}
+
+<head>
+    <title>Edit Page</title>
+    <link rel="stylesheet" href="{%static 'css/edit_style.css'%}">
+</head>
+
+<body>
+    <nav>
+        <a href="{% url 'home'%}">Home</a>
+        <a href="{% url 'add'%}">Add Student</a>
+        <a class="activee" href="{% url 'edit'%}">Edit Student Data</a>
+        <a href="{% url 'search'%}">Search</a>
+        <a href="{% url 'view'%}">View Students</a>
+        <a href="{% url 'department'%}">Department</a>
+        <a href="{% url 'login'%}">Logout</a>
+
+
+    </nav>
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="a">
+            <img src="{%static 'images/edit icon.png'%}" alt="Trulli" width="150" height="150"><br>
+
+            <p>
+                <h3>Enter the Student's ID</h3>
+                <input type="text" color: #240f70; " placeholder="Student 's ID" name="idd">
+                <br> <br>
+            </p>
+    </div>
+    <br><br>
+
+    <div class="b">
+        <center> <label for="options" style="margin-right: 15;">Update an information</label>
+            <select name="options" id="Op" style="margin-right: 15;color: #240f70;">
+                <option value="GPA" name="GPA">GPA</option>
+                <option value="ID" name="ID">ID</option>
+                <option value="Name" name="Name" >Name</option>
+                <option value="Mobile number" name="Mobile number">Mobile number</option>
+                <option value="Status" namee="Status" >Status</option>
+                <option value="Gender" name="Gender">Gender</option>
+                <option value="date of birth"name='date of birth ' >Date of birth</option>
+                <option value="Email" name="Email">Email</option>
+                </select>
+            <input type="text" id="current" style="margin-right: 15;color: #240f70;" name="info" placeholder="Enter Updated information">
+            <button onclick="update()" style="margin-right: 30;" name="update">Update</button>
+
+            <br><br>
+
+            <h4 id="feedback"></h4>
+            <label> Delete Student</label>
+            <br><br>
+            <button onclick="confirmAction()" name="delete">Delete</button>
+            
+
+
+        </center>
+
+    </div>
+    </form>
+
+</body>
+<script type="text/javascript" src="{% static 'JS/edit_JS.js ' %}"></script>
+
+</html>
